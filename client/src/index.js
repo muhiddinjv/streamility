@@ -7,6 +7,7 @@ const root = createRoot(container);
 root.render(<App tab="home" />);
 
 /*  
+    Client ID: 1023216195241-rbvhkertb7hlbkl1dcojam9vt53mv76t.apps.googleusercontent.com
     ALT + I/J/K/L: Move cursor up/left/down/right
     ALT + SHIFT + I/J/K/L: Mark lines/characters while moving character up/left/down/right
     ALT + CTRL + J/L: Move cursor to start/end of word
