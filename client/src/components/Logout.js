@@ -5,14 +5,14 @@ const clientId =
 
 function Logout() {
   const onLogoutSuccess = (res) => {
-    console.log("Logout successful!");
+    alert("Logout successful!");
   };
 
   const logOutButton = (renderProps) => {
     return (
-      <button className="logInButton" onClick={renderProps.onClick}>
-        logout
-      </button>
+      <div className="logout" onClick={renderProps.onClick}>
+        X
+      </div>
     );
   };
 
@@ -21,7 +21,6 @@ function Logout() {
       <GoogleLogout
         render={(renderProps) => logOutButton(renderProps)}
         clientId={clientId}
-        buttonText="Logout"
         onLogoutSuccess={onLogoutSuccess}
       />
     </div>
