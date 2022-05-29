@@ -3,15 +3,11 @@ import { GoogleLogout } from "react-google-login";
 const clientId =
   "1023216195241-rbvhkertb7hlbkl1dcojam9vt53mv76t.apps.googleusercontent.com";
 
-function Logout() {
-  const onLogoutSuccess = (res) => {
-    alert("Logout successful!");
-  };
-
+function Logout(props) {
   const logOutButton = (renderProps) => {
     return (
       <div className="logout" onClick={renderProps.onClick}>
-        X
+        <i className="sign-out icon"></i>
       </div>
     );
   };
@@ -21,7 +17,7 @@ function Logout() {
       <GoogleLogout
         render={(renderProps) => logOutButton(renderProps)}
         clientId={clientId}
-        onLogoutSuccess={onLogoutSuccess}
+        onLogoutSuccess={props.onLogout}
       />
     </div>
   );
