@@ -1,4 +1,5 @@
 import { GoogleLogout } from "react-google-login";
+import logout from '../../assets/logout.jpg'
 
 const clientId =
   "1023216195241-rbvhkertb7hlbkl1dcojam9vt53mv76t.apps.googleusercontent.com";
@@ -6,8 +7,9 @@ const clientId =
 function Logout(props) {
   const logOutButton = (renderProps) => {
     return (
-      <div className="logout" onClick={renderProps.onClick}>
-        <i className="sign-out icon"></i>
+      <div  onClick={renderProps.onClick}>
+        {/* <i className="sign-out icon"/> */}
+        <img className="logout"  src={logout} alt="avatar" />
       </div>
     );
   };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Login from './Login';
 import Logout from './Logout';
 import "./Header.scss";
-import guest from '../../assets/img_avatar.png'
+import guest from '../../assets/user.png'
 
 
 import {gapi} from 'gapi-script';
@@ -11,13 +11,14 @@ const clientId = "1023216195241-rbvhkertb7hlbkl1dcojam9vt53mv76t.apps.googleuser
 
 const Header = () => {
   const [user, setUser] = useState('');
+  const [signedIn, setSignedIn] = useState('');
 
   const onLoginSuccess = (res) => {
     setUser(res.profileObj.imageUrl);
   };
 
   const onLoginFailure = (res) => {
-    console.log(`LOGIN FAILURE! Response: ${res}`);
+    alert(`LOGIN FAILURE: ${res.error}`);
   };
 
   const logInButton = (renderProps) => {
@@ -37,11 +38,14 @@ const Header = () => {
       gapi.auth2.init({
         clientId: clientId,
         scope:""
+      }).then((res)=>{
+        setSignedIn(res.isSignedIn.get())
       })
     }
     gapi.load('client:auth2', start)
   })
   // let accessToken = gapi.auth.getToken().access_token;
+  console.log('signedIn :>> ', signedIn);
   return (
     <div className='ui secondary pointing menu'>
         <Link to='/' className='item'>Streamy</Link>
