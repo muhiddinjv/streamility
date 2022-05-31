@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
 import "./Header.scss";
-import guest from "../../assets/user.png";
+import avatarImage from "../../assets/user.png";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../../actions";
 import { gapi } from "gapi-script";
@@ -13,7 +13,7 @@ const clientId =
 class Header extends Component {
   state = {
     user: null,
-    isSignedIn: null,
+    // isSignedIn: null,
   };
 
   onLoginSuccess = (res) => {
@@ -28,13 +28,13 @@ class Header extends Component {
     const { user } = this.state;
     return (
       <div className="logInButton" onClick={renderProps.onClick}>
-        <img className="user" src={user ? user : guest} alt="avatar" />
+        <img className="user" src={user ? user : avatarImage} alt="avatar" />
       </div>
     );
   };
 
   onLogoutSuccess = () => {
-    this.setState({ user: guest });
+    this.setState({ user: avatarImage });
     console.log("Logout successful!");
   };
 
@@ -55,7 +55,8 @@ class Header extends Component {
       })
       .then(() => {
         this.auth = gapi.auth2.getAuthInstance() || {};
-        this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+        // this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+        this.onAuthChange(this.auth.isSignedIn.get());
         this.auth.isSignedIn.listen(this.onAuthChange);
       });
     })
@@ -85,4 +86,8 @@ class Header extends Component {
   }
 }
 
-export default connect(null, { signIn, signOut })(Header);
+const mapStateToProps = (state) => {
+  return{ isSignedIn: state.auth.isSignedIn }
+}
+
+export default connect(mapStateToProps, { signIn, signOut })(Header);
