@@ -4,7 +4,7 @@ import logout from '../../assets/logout.jpg'
 const clientId =
   "1023216195241-rbvhkertb7hlbkl1dcojam9vt53mv76t.apps.googleusercontent.com";
 
-function Logout(props) {
+const Logout = (props) => {
   const logOutButton = (renderProps) => {
     return (
       <div  onClick={renderProps.onClick}>
