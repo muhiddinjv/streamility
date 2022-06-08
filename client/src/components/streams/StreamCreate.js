@@ -1,4 +1,4 @@
-import React, { forwardRef, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import { createStream } from '../../actions';
