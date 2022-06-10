@@ -1,13 +1,21 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { fetchStreams } from '../../actions'
 
-const StreamList = () => {
-  return (
-    <div>
-      StreamList
-      <Link to="/streams/edit">go to stream edit</Link>
-    </div>
-  );
+class StreamList extends PureComponent {
+  componentDidMount(){
+    this.props.fetchStreams();
+  }
+  
+  render(){
+    return (
+      <div>
+        StreamList
+        <Link to="/streams/edit">go to stream edit</Link>
+      </div>
+    );
+  }
 };
 
-export default StreamList;
+export default connect(null, { fetchStreams })(StreamList);
