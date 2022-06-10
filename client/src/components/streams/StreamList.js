@@ -27,7 +27,7 @@ class StreamList extends PureComponent {
     return (
       <div>
         <h2>Streams</h2>
-        <Link to="/streams/edit">go to stream edit</Link>
+        <Link to="/streams/new">go to stream create</Link>
         <div className="ui celled list">
         {this.renderList()}
         </div>
