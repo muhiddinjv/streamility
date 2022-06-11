@@ -40,7 +40,6 @@ class StreamCreate extends PureComponent {
         className="ui form error"
       >
         <Link to="/">go to stream list</Link>
-
         <Field name="title" component={this.renderInput} label="Enter Title" />
         <Field
           name="description"
