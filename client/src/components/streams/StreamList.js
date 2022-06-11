@@ -20,6 +20,16 @@ class StreamList extends PureComponent {
     }
   }
 
+  renderCreate() {
+    if (this.props.isSignedIn) {
+      return (
+        <div style={{textAlign: 'right'}}>
+          <Link className="ui button primary" to="/streams/new">Create Stream</Link>
+        </div>
+      );
+    }
+  }
+
   renderList() {
     return this.props.streams.map((stream) => {
       return (
@@ -41,6 +51,7 @@ class StreamList extends PureComponent {
         <h2>Streams</h2>
         <Link to="/streams/new">go to stream create</Link>
         <div className="ui celled list">{this.renderList()}</div>
+        {this.renderCreate()}
       </div>
     );
   }
@@ -50,6 +61,7 @@ const mapStateToProps = (state) => {
   return {
     streams: Object.values(state.streams),
     currentUserId: state.auth.userId,
+    isSignedIn: state.auth.isSignedIn
   };
 };
 
