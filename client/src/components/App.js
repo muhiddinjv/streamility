@@ -6,13 +6,13 @@ import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
 import Header from './header/Header';
-// import history from '../history';
+import history from '../history';
 // <Router history={history} >
 
 const App = () => {
   return (
     <div className="ui container">
-      <Router>
+      <Router history={history} >
       <Header/>
         <Routes>
           <Route path="/" exact element={<StreamList />} />

@@ -9,7 +9,6 @@ class StreamCreate extends PureComponent {
   state = {navigate: false};
 
   renderError({ error, touched }) {
-    console.log("meta :>> ", error);
     if (touched && error) {
       return (
         <div className="ui error message">
@@ -32,12 +31,11 @@ class StreamCreate extends PureComponent {
   };
 
   onSubmit = (formValues) => {
-    console.log("formValues :>> ", formValues);
     this.props.createStream(formValues);
     this.setState({navigate: true})
   };
 
-  render() {
+  render() { //get the user back to the root route
     if (this.state.navigate) {return <Navigate to="/"/>};
 
     return (
@@ -59,9 +57,7 @@ class StreamCreate extends PureComponent {
 }
 
 const validate = (formValues) => {
-  console.log("first");
   const errors = {};
-
   // if object properties (title, desc) are identical to field attributes (title, desc),
   // the properties will be passed into the field element
   if (!formValues.title) {
