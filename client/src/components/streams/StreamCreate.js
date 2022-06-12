@@ -3,8 +3,11 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { createStream } from "../../actions";
 import { Link } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 class StreamCreate extends PureComponent {
+  state = {navigate: false};
+
   renderError({ error, touched }) {
     console.log("meta :>> ", error);
     if (touched && error) {
@@ -31,9 +34,12 @@ class StreamCreate extends PureComponent {
   onSubmit = (formValues) => {
     console.log("formValues :>> ", formValues);
     this.props.createStream(formValues);
+    this.setState({navigate: true})
   };
 
   render() {
+    if (this.state.navigate) {return <Navigate to="/"/>};
+
     return (
       <form
         onSubmit={this.props.handleSubmit(this.onSubmit)}
