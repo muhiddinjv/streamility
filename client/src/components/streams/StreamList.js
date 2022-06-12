@@ -13,8 +13,8 @@ class StreamList extends PureComponent {
     if (this.props.currentUserId === stream.userId) {
       return (
         <div className="right floated content">
-          <div className="ui button primary">Edit</div>
-          <div className="ui button negative">Delete</div>
+          <Link className="ui button primary" to={`/streams/edit/${stream.id}`}>Edit</Link>
+          <Link className="ui button negative" to={`/streams/delete/${stream.id}`}>Delete</Link>
         </div>
       );
     }
