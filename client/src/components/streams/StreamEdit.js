@@ -1,7 +1,8 @@
 import React, {useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchStreams } from "../../actions";
+import { fetchStreams, editStream } from "../../actions";
+import StreamForm from './StreamForm'
 
 let params;
 
@@ -14,18 +15,22 @@ const StreamEdit = (props) => {
     }
     console.log('mount it!');
   }, []);
-  
 
-  console.log('props :>> ', props);
-  return <div>StreamEdit</div>;
+  const onSubmit = (formValues) => {
+    props.editStream(formValues);
+  };
+  console.log('props.stream :>> ', props.stream);
+
+  return (<div>
+    <h1>{props.stream}</h1>
+    <div><StreamForm onSubmit={onSubmit}/></div>
+  </div>)
 };
 
-const mapStateToProps = (state, ownProps) => {
-  console.log('ownProps :>> ', ownProps);
-  console.log('params :>> ', params);
+const mapStateToProps = (state) => {
   return {
     stream: state.streams[params?.id],
   };
 };
 
-export default connect(mapStateToProps)(StreamEdit);
+export default connect(mapStateToProps,{editStream})(StreamEdit);
