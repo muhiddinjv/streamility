@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, {useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
@@ -10,19 +11,23 @@ const StreamEdit = (props) => {
   params = useParams();
 
   useEffect(() => {
-    if(params) {
+    // if(params) {
       fetchStream(params.id);
-    }
+    // }
     console.log('mount it!');
   }, []);
 
   const onSubmit = (formValues) => {
-    editStream(formValues);
+    console.log('formValues :>> ', formValues);
+    editStream(params.id, formValues);
   };
-  console.log('props.stream :>> ', props.stream);
-  return (<div>
-    <h1>{props?.stream}</h1>
-    <div><StreamForm initialValues={props?.stream} onSubmit={onSubmit}/></div>
+
+  // if (!props.stream) return <h1>Loading...</h1>
+  
+  return (
+  <div>
+    <h1>{props?.stream?.title}</h1>
+    <div><StreamForm initialValues={_.pick(props.stream,'title','description')} onSubmit={onSubmit}/></div>
   </div>)
 };
 

@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import { Field, reduxForm } from "redux-form";
-import { Link } from "react-router-dom";
 import { Navigate } from 'react-router-dom';
 
 class StreamForm extends PureComponent {
@@ -41,7 +40,6 @@ class StreamForm extends PureComponent {
         onSubmit={this.props.handleSubmit(this.onSubmit)}
         className="ui form error"
       >
-        <Link to="/">go to stream list</Link>
         <Field name="title" component={this.renderInput} label="Enter Title" />
         <Field
           name="description"
