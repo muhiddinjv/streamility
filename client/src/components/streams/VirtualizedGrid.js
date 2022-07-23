@@ -1,4 +1,4 @@
-// import "./virtualized-grid.css";
+import "./virtualized-grid.css";
 import { useState, useEffect } from "react";
 import { VirtualizedGrid } from "@mierak/react-virtualized-grid";
 
@@ -44,10 +44,12 @@ export default function GridVirtualized() {
       >
         {(index) => (
           <div>
-            {elements[index]}
+          {elements[index]}
           </div>
         )}
       </VirtualizedGrid>
     </>
   );
 }
+
+

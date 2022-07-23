@@ -6,55 +6,14 @@
       "id": 1
     },
     {
-      "title": "my stream1",
-      "description": "descrpition of stream1",
-      "id": 5
-    },
-    {
-      "title": "muhiddin",
-      "description": "my stream",
-      "userId": "115756740773375105521",
-      "id": 11
-    },
-    {
-      "title": "my new stream",
-      "description": "i made this stream",
-      "userId": "115756740773375105521",
-      "id": 12
-    },
-    {
-      "title": "my new stream2 ",
-      "description": "this is pushed after the stream was created",
-      "userId": "115756740773375105521",
-      "id": 13
-    },
-    {
-      "title": "e",
-      "description": "e",
-      "userId": "115756740773375105521",
-      "id": 14
-    },
-    {
-      "title": "d",
-      "description": "d",
-      "userId": "115756740773375105521",
-      "id": 15
-    },
-    {
-      "title": "d",
-      "description": "d",
-      "userId": "115756740773375105521",
-      "id": 16
-    },
-    {
       "title": "July10",
       "description": "back to reality",
       "userId": "115756740773375105521",
       "id": 17
     },
     {
-      "title": "july10",
-      "description": "back to reality again",
+      "title": "stream title 1",
+      "description": "stream description 1",
       "userId": "115756740773375105521",
       "id": 18
     }
