@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchStream, editStream } from "../../actions";
@@ -10,20 +10,15 @@ let params;
 const StreamEdit = (props) => {
   params = useParams();
 
-  useEffect(() => {
-    // if(params) {
-      fetchStream(params.id);
-    // }
-    console.log('mount it!');
-  }, []);
+  // useEffect(() => {
+    fetchStream(params.id);
+  // }, []);
 
   const onSubmit = (formValues) => {
-    console.log('formValues :>> ', formValues);
     editStream(params.id, formValues);
   };
 
-  // if (!props.stream) return <h1>Loading...</h1>
-  
+  console.log('props.stream', props.stream)
   return (
   <div>
     <h1>{props?.stream?.title}</h1>

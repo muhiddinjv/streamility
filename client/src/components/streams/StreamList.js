@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchStreams } from "../../actions";
-import GridVirtualized from "./VirtualizedGrid";
 
 class StreamList extends PureComponent {
   componentDidMount() {
@@ -50,7 +49,6 @@ class StreamList extends PureComponent {
     return (
       <div>
         <h2>Streams</h2>
-        <GridVirtualized />
         <div className="ui celled list">{this.renderList()}</div>
         {this.renderCreate()}
       </div>
