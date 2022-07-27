@@ -8,17 +8,20 @@ import StreamForm from './StreamForm'
 let params;
 
 const StreamEdit = (props) => {
+  // const [params, setParams] = React.useState([]);
+  
   params = useParams();
-
-  // useEffect(() => {
+  useEffect(() => {
+  //   setParams(params)
     fetchStream(params.id);
-  // }, []);
+  });
 
   const onSubmit = (formValues) => {
     editStream(params.id, formValues);
   };
 
   console.log('props.stream', props.stream)
+
   return (
   <div>
     <h1>{props?.stream?.title}</h1>
