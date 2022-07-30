@@ -45,6 +45,7 @@ class StreamForm extends PureComponent {
           name="description"
           component={this.renderInput}
           label="Enter Description"
+          // value={"defaultVal"} {...field}
         />
         <button className="ui button primary">Submit</button>
       </form>

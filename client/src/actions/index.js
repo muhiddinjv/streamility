@@ -27,13 +27,15 @@ export const fetchStreams = (formValues) => async (dispatch) => {
 
 export const fetchStream = (id) => async (dispatch) => {
   const response = await streams.get(`/streams/${id}`);
-  console.log(response)
+
   dispatch({ type: FETCH_STREAM, payload: response.data });
 };
 
 export const editStream = (id, formValues) => async (dispatch) => {
   const response = await streams.put(`/streams/${id}`, formValues);
-  
+  console.log('response :>> ', response);
+  console.log('formValues :>> ', formValues);
+
   dispatch({ type: EDIT_STREAM, payload: response.data });
   history.push('/');
 };

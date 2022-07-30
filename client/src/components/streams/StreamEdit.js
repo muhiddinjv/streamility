@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, {useEffect, useRef} from "react";
+import React, {useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchStream, editStream } from "../../actions";
@@ -8,11 +8,9 @@ import StreamForm from './StreamForm'
 let params;
 
 const StreamEdit = (props) => {
-  // const [params, setParams] = React.useState([]);
-  
   params = useParams();
+
   useEffect(() => {
-  //   setParams(params)
     fetchStream(params.id);
   });
 
@@ -24,12 +22,13 @@ const StreamEdit = (props) => {
 
   return (
   <div>
-    <h1>{props?.stream?.title}</h1>
+    <h1>{props.stream.title}</h1>
     <div><StreamForm initialValues={_.pick(props.stream,'title','description')} onSubmit={onSubmit}/></div>
   </div>)
 };
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     stream: state.streams[params?.id],
   };
