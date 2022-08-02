@@ -2,18 +2,19 @@ import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchStreams } from "../../actions";
+import history from '../../history';
 
 class StreamList extends PureComponent {
   componentDidMount() {
     this.props.fetchStreams();
-    console.log("currentUserId :>> ", this.props.currentUserId);
-  }
+  }//window.location.href = "/insert/your/path/here"
 
   renderAdmin(stream) {
     if (this.props.currentUserId === stream.userId) {
       return (
         <div className="right floated content">
-          <Link className="ui button primary" to={`/streams/edit/${stream.id}`}>Edit</Link>
+          <div className="ui button primary" onClick={()=>history.push(`/streams/edit/${stream.id}`)}>Edit</div>
+          {/* <Link className="ui button primary" to={`/streams/edit/${stream.id}`}>Edit</Link> */}
           <Link className="ui button negative" to={`/streams/delete/${stream.id}`}>Delete</Link>
         </div>
       );

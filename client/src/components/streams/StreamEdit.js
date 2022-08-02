@@ -18,17 +18,18 @@ const StreamEdit = (props) => {
     editStream(params.id, formValues);
   };
 
-  console.log('props.stream', props.stream)
+  // console.log('props.stream', props.stream)
+  console.log('props.stream', props?.stream?.title)
 
   return (
   <div>
-    <h1>{props.stream.title}</h1>
-    <div><StreamForm initialValues={_.pick(props.stream,'title','description')} onSubmit={onSubmit}/></div>
+    <h1>{props?.stream?.title}</h1>
+    <StreamForm initialValues={_.pick(props?.stream,'title','description')} onSubmit={onSubmit}/>
   </div>)
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
   return {
     stream: state.streams[params?.id],
   };
